@@ -1,0 +1,101 @@
+<% layout("layout/boilerplate") %>
+
+<link rel="stylesheet" href="/css/booking.css" />
+<div class="row">
+  <h1 class="text-center"><%= room.name %></h1>
+  <div class="col-sm-8 offset-md-2">
+    <div class="card mb-3">
+      <div class="card-body">
+        <img src="<%= room.image %>" class="card-img-top" alt="..." />
+        <div class="card-text">
+          <form action="/room/<%= room.id %>/booking" method="POST">
+            <div>
+              <label for="fullname">Full Name</label>
+              <input
+                type="text"
+                name="booking[fullname]"
+                class="form-control"
+                id="fullname"
+                required
+              />
+            </div>
+            <div>
+              <label for="room">Room No</label>
+              <input
+                type="text"
+                name="booking[room]"
+                id="room"
+                class="form-control"
+                value="<%= room.name %>"
+                readonly
+              />
+            </div>
+            <div>
+              <label for="email">Email Adrress</label>
+              <input
+                type="email"
+                name="booking[email]"
+                class="form-control"
+                id="email"
+                required
+              />
+            </div>
+            <div>
+              <label for="phone">Phone Number</label>
+              <input
+                type="number"
+                name="booking[phone]"
+                class="form-control"
+                id="phone"
+                minlength="11"
+                required
+              />
+            </div>
+            <div>
+              <label for="checkin">Check In</label>
+              <input
+                type="date"
+                name="booking[checkin]"
+                class="form-control"
+                id="checkin"
+                required
+              />
+            </div>
+            <div>
+              <label for="checkout">Check Out</label>
+              <input
+                type="date"
+                name="booking[checkout]"
+                class="form-control"
+                id="checkout"
+                required
+              />
+            </div>
+            <div>
+              <label for="roomid"> Room ID</label>
+              <input
+                type="text"
+                name="booking[roomid]"
+                value="<%= room.id %>"
+                class="form-control"
+                readonly
+              />
+            </div>
+            <div>
+              <label for="date">Date </label>
+              <input
+                type="text"
+                name="booking[date]"
+                value="<%= date %>"
+                class="form-control"
+                readonly
+              />
+            </div>
+
+            <button type="submit" class="btn btn-success my-3">Book</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

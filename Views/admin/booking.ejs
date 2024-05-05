@@ -1,0 +1,71 @@
+<% layout("layout/adminboilerplate") %>
+<link rel="stylesheet" href="/css/adminbooking.css" />
+
+<div class="row mb-3">
+  <div class="col-md-8 offset-md-2">
+    <div class="card">
+      <img src="<%= room.image %>" alt="" class="card-img-top" height="500px" />
+      <div class="card-body">
+        <div class="card-title">
+          <div class="row border-bottom mb-3 p-2">
+            <div class="col-md-6 col-sm-4 text-start" id="card-name">
+              <h3 class="d-inline"><%= booking.fullname %></h3>
+            </div>
+            <div class="col-md-6 col-sm-8 text-end" id="card-name">
+              <h4 class="d-inline ms-5"><%= booking.room %></h4>
+            </div>
+          </div>
+
+          <div class="card-text">
+            <div class="row border-bottom mb-3">
+              <h5>Personal Info</h5>
+              <div class="col-md-8">
+                <p>Email : <%= booking.email %></p>
+              </div>
+              <div class="col-md-4">
+                <p>Phone : <%= booking.phone %></p>
+              </div>
+            </div>
+            <div class="row border-bottom mb-3">
+              <h5>Check In/Out</h5>
+              <div class="col-md-8">
+                <p>Check In : <%= booking.checkin %></p>
+              </div>
+              <div class="col-md-4">
+                <p>Check Out : <%= booking.checkout %></p>
+              </div>
+            </div>
+
+            <div class="row border-bottom mb-3">
+              <h5>Room Info</h5>
+              <p class="d-flex flex-column justify-content-evenly">
+                <span>
+                  <i class="fa-solid fa-shower"></i> Bathrooms :
+                  <%=room.bathrooms %>
+                </span>
+
+                <span
+                  ><i class="fa-solid fa-bed"></i> Beds : <%=room.beds %></span
+                >
+                <span>
+                  <i class="fa-solid fa-person"></i> Max Guests : <%=
+                  room.maxguests %>
+                </span>
+              </p>
+            </div>
+            <div class="div border-bottom mb-3">
+              <p>Booking Date : <%= booking.date %></p>
+            </div>
+
+            <form
+              action="/admin/booking/<%= booking.id %>/<%= room._id %>?_method=DELETE"
+              method="post"
+            >
+              <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

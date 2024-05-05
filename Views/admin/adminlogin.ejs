@@ -1,0 +1,59 @@
+<% layout('layout/boilerplate') %>
+
+<style>
+  body {
+    height: 100%;
+    width: 100%;
+    background-image: url("/images/16692.jpg");
+    background-size: cover;
+  }
+</style>
+
+<div class="login d-flex justify-content-center align-items-center" id="login">
+  <div class="">
+    <div class="m-3">
+      <div id="alertContainer"></div>
+      <!-- Create a container for the alerts -->
+      <form
+        action="/admin/login"
+        method="post"
+        onsubmit="return validateForm()"
+      >
+        <div class="mb-3">
+          <label for="Username" class="text-white">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            name="user[username]"
+            placeholder="Username"
+            autofocus
+          />
+        </div>
+        <div class="mb-3">
+          <label for="password" class="text-white">Password</label>
+          <div class="input-group bg-light border rounded">
+            <input
+              type="password"
+              class="form-control"
+              id="password"
+              name="user[password]"
+              placeholder="Password"
+            />
+            <button
+              type="button"
+              class="btn "
+              onclick="togglePasswordVisibility()"
+            >
+              <i id="passwordVisibilityIcon" class="fa-solid fa-eye"></i>
+            </button>
+          </div>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Login</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="/scripts/adminlogin.js"></script>

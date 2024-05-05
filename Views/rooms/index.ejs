@@ -1,0 +1,48 @@
+<% layout('/layout/boilerplate') %>
+<link rel="stylesheet" href="css/index.css" />
+
+<h1 class="heading text-center">All Rooms</h1>
+<div class="row">
+  <% for(let room of rooms) {%>
+  <div class="col-lg-4 col-md-6 mb-3">
+    <div class="card">
+      <div class="col-md-12">
+        <img
+          src="<%= room.image %>"
+          class="card-img-top"
+          height="300px"
+          width="400px"
+        />
+      </div>
+      <div class="col-md-12">
+        <h5 class="card-title text-center"><%= room.name %></h5>
+        <p class="card-text m-2">
+          <%= room.description.slice(0,200) %>
+
+          <a href="room/<%=room.id %>">read more</a>
+        </p>
+        <p>
+          <small class="text-body-secondary d-block mb-2 ms-3"
+            ><i class="fa-solid fa-location-dot"></i> <%= room.city %></small
+          >
+        </p>
+        <p class="d-flex justify-content-evenly">
+          <span class="mx-2">
+            <i class="fa-solid fa-shower"></i> <%=room.bathrooms %>
+          </span>
+
+          <span><i class="fa-solid fa-bed"></i> <%=room.beds %></span>
+          <span>
+            <i class="fa-solid fa-person"></i> <%= room.maxguests %>
+          </span>
+        </p>
+        <div class="d-flex justify-content-center">
+          <a href="room/<%=room.id %>" class="btn m-3 text-start"
+            >View <i class="fa-solid fa-arrow-right text-end" id="view"></i
+          ></a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <% } %>
+</div>

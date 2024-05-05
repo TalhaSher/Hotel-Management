@@ -1,0 +1,15 @@
+<% layout("layout/boilerplate") %>
+<div class="row">
+  <div class="col-6 offset-3">
+    <div class="alert alert-danger" role="alert">
+      <div class="row">
+        <div class="col-md-6">
+          <h4 class="alert-heading"><%= err.message %></h4>
+        </div>
+        <div class="col-md-6 text-end">
+          <h4><%= err.statusCode %></h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

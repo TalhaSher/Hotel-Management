@@ -1,0 +1,27 @@
+@font-face {
+  font-family: "Coldiac";
+  src: url("../fonts/Coldiac.ttf");
+}
+@font-face {
+  font-family: "Portal";
+  src: url("../fonts/Portal.ttf");
+}
+.navbar-brand {
+  font-family: "Portal";
+  font-size: xx-large;
+}
+
+h1 {
+  font-family: "Coldiac";
+  font-size: xx-large;
+  color: #ffcb74;
+}
+
+body {
+  background-color: #2f2f2f;
+}
+
+.card {
+  background-color: #f6f6f6;
+  box-shadow: #ffcb74 0px 0px 5px;
+}

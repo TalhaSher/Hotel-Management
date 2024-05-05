@@ -1,0 +1,99 @@
+<% layout("layout/adminboilerplate") %>
+
+<link rel="stylesheet" href="/css/newroom.css" />
+
+<div class="row">
+  <h1 class="text-center">EDIT ROOM</h1>
+  <div class="col-6 offset-3">
+    <div class="card mb-3">
+      <div class="card-body">
+        <form
+          action="/admin/rooms/edit/<%= room.id %>?_method=PUT"
+          method="post"
+        >
+          <div class="mb-3">
+            <label for="name">Room ID</label>
+            <input
+              type="text"
+              name="room[name]"
+              id="name"
+              class="form-control"
+              value="<%= room.name %>"
+              required
+            />
+          </div>
+          <div>
+            <label for="city">City</label>
+            <input
+              type="text"
+              name="room[city]"
+              id="city"
+              class="form-control"
+              value="<%= room.city %>"
+              required
+            />
+          </div>
+          <div>
+            <label for="maxG">Maximum Guests</label>
+            <input
+              type="number"
+              name="room[maxguests]"
+              id="maxG"
+              class="form-control"
+              value="<%= room.maxguests %>"
+              required
+            />
+          </div>
+          <div>
+            <label for="beds">Number of Beds</label>
+            <input
+              type="Number"
+              name="room[beds]"
+              id="beds"
+              class="form-control"
+              value="<%= room.beds %>"
+              required
+            />
+          </div>
+          <div>
+            <label for="bathrooms">Number of bathrooms</label>
+            <input
+              type="Number"
+              name="room[bathrooms]"
+              id="bathrooms"
+              class="form-control"
+              value="<%= room.bathrooms %>"
+              required
+            />
+          </div>
+          <div>
+            <label for="Description">Description</label>
+
+            <textarea
+              class="form-control mb-3"
+              name="room[description]"
+              id="Description"
+              cols="30"
+              rows="5"
+            >
+        <%= room.description %>
+      </textarea
+            >
+          </div>
+          <div class="mb-3">
+            <label for="image">Image Src</label>
+            <input
+              type="text"
+              name="room[image]"
+              id="image"
+              class="form-control"
+              value="<%= room.image %>"
+              required
+            />
+          </div>
+          <button type="submit" class="btn btn-primary">EDIT ROOM</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<% layout("layout/adminboilerplate") %>
+<link rel="stylesheet" href="/css/adminshow.css" />
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card mb-3">
+      <img src="<%= rooms.image %>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= rooms.name %></h5>
+        <div class="card-text">
+          <p><%= rooms.description %></p>
+
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-shower"></i>
+              <p class="d-inline">Bathrooms :</p>
+            </div>
+            <div class="col-sm-1">
+              <p><%=rooms.bathrooms %></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-bed"></i>
+              <p class="d-inline">Beds :</p>
+            </div>
+            <div class="col-sm-1">
+              <p class="d-inline"><%=rooms.beds %></p>
+            </div>
+          </div>
+          <div class="row mb-3">
+            <div class="col-sm-4">
+              <i class="fa-solid fa-person"></i>
+
+              <p class="d-inline">Max Guests :</p>
+            </div>
+            <div class="col-sm-1">
+              <p><%= rooms.maxguests %></p>
+            </div>
+          </div>
+
+          <small class="text-body-secondary d-block mb-2"
+            ><i class="fa-solid fa-location-dot"></i> <%= rooms.city %></small
+          >
+          <a class="btn btn-warning" href="/admin/edit/<%= rooms.id %>">Edit</a>
+          <form
+            action="/admin/delete/<%= rooms.id %>?_method=DELETE"
+            method="post"
+            class="d-inline"
+          >
+            <button type="submit" class="btn btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6">
+    <% if(rooms.reviews.length != 0) {%> <% for (let review of rooms.reviews)
+    {%>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="card-title">
+          <h5>Rating : <%= review.rating %></h5>
+        </div>
+        <div class="card-text">
+          <h6>Review :</h6>
+          <p><%= review.body %></p>
+          <form
+            action="/room/<%= rooms._id %>/review/<%= review._id %>?_method=DELETE"
+            method="post"
+          >
+            <button class="btn btn-sm btn-danger">Delete</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <% } %> <% }else{ %>
+    <div class="card">
+      <div class="card-body">
+        <div class="card-title">
+          <div class="d-flex justify-content-center">
+            <h5 class="text-danger">No Reviews Were Found</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

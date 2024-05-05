@@ -1,0 +1,105 @@
+<% layout("layout/boilerplate") %>
+
+<link rel="stylesheet" href="/css/show.css" />
+
+<div class="row">
+  <div class="col-md-6">
+    <div class="card mb-3">
+      <img src="<%= room.image %>" class="card-img-top" alt="..." />
+      <div class="card-body">
+        <h5 class="card-title text-center"><%= room.name %></h5>
+        <p class="card-text"><%= room.description %></p>
+
+        <div class="row">
+          <div class="col-sm-1">
+            <i class="fa-solid fa-shower"></i>
+          </div>
+          <div class="col-sm-3">
+            <p>Bathrooms :</p>
+          </div>
+          <div class="col-sm-1">
+            <p><%=room.bathrooms %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1">
+            <i class="fa-solid fa-bed"></i>
+          </div>
+          <div class="col-sm-3">
+            <p>Beds :</p>
+          </div>
+          <div class="col-sm-1">
+            <p><%=room.beds %></p>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-1">
+            <i class="fa-solid fa-person"></i>
+          </div>
+          <div class="col-sm-3">
+            <p>Max Guests :</p>
+          </div>
+          <div class="col-sm-1">
+            <p><%= room.maxguests %></p>
+          </div>
+        </div>
+
+        <small class="text-body-secondary d-block mb-2"
+          ><i class="fa-solid fa-location-dot"></i> <%= room.city %></small
+        >
+        <div class="d-flex justify-content-center">
+          <a href="/room/<%= room.id %>/booknow" class="btn"> Book Now</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-6">
+    <form
+      action="/rooms/<%= room.id %>/reviews"
+      method="post"
+      class="bg-light border rounded p-2 mb-3"
+    >
+      <h2>Leave a Review</h2>
+      <div class="mb-3">
+        <label for="rating">Rating</label>
+        <input
+          type="range"
+          name="review[rating]"
+          id="rating"
+          min="1"
+          max="5"
+          class="form-control"
+        />
+      </div>
+      <div class="mb-3">
+        <label for="review">Review</label>
+        <textarea
+          name="review[body]"
+          id="review"
+          cols="30"
+          rows="3"
+          class="form-control"
+          required
+        ></textarea>
+      </div>
+
+      <div class="d-flex justify-content-center">
+        <button class="btn btn-sm">Submit</button>
+      </div>
+    </form>
+
+    <% for (let review of room.reviews) {%>
+    <div class="card mb-3">
+      <div class="card-body">
+        <div class="card-title">
+          <h5>Rating : <%= review.rating %></h5>
+        </div>
+        <div class="card-text">
+          <h6>Review :</h6>
+          <p><%= review.body %></p>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

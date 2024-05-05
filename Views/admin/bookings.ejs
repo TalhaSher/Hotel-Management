@@ -1,0 +1,64 @@
+<% layout("layout/adminboilerplate") %>
+
+<link rel="stylesheet" href="/css/adminbookings.css" />
+
+<div class="row">
+  <!-- ADMIN SIDE PANEL STARTS HERE -->
+  <div class="col-lg-4 d-none d-lg-block mb-3">
+    <div class="card">
+      <div class="col-lg-12">
+        <img src="/images/img.jpg" alt="" class="card-img-top" height="70%" />
+      </div>
+
+      <div class="card-title">
+        <div class="row">
+          <div class="col-lg-12">
+            <h4 class="border-bottom p-3">Admin Overview</h4>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-text ms-3">
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Total rooms :</p>
+          </div>
+          <div class="col-lg-4 text-end me-1">
+            <p class="text-success"><%= rooms.length %></p>
+          </div>
+        </div>
+
+        <div class="row">
+          <div class="col-lg-6">
+            <p>Total Bookings :</p>
+          </div>
+          <div class="col-lg-4 text-end me-1">
+            <p class="text-danger"><%= bookings.length %></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ADMIN SIDE PANEL ENDS HERE -->
+  <div class="col-sm-10 offset-sm-1 col-lg-7">
+    <% for (let booking of bookings) {%>
+    <div
+      class="row bg-info-subtle p-3 bg-info bg-opacity-10 border border-info rounded mb-2"
+    >
+      <div class="col-sm-3">
+        <h4><%= booking.fullname %></h4>
+      </div>
+      <div class="col-sm-3">
+        <p><%= booking.room %></p>
+      </div>
+      <div class="col-sm-4">
+        <p>Check In : <%= booking.checkin %></p>
+        <p>Check Out : <%= booking.checkout %></p>
+      </div>
+      <div class="col-sm-2">
+        <a href="/admin/newbooking/<%= booking.id %>" class="btn mt-3"> View</a>
+      </div>
+    </div>
+    <% } %>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+@font-face {
+  font-family: "Coldiac";
+  src: url("../fonts/Coldiac.ttf");
+}
+@font-face {
+  font-family: "Portal";
+  src: url("../fonts/Portal.ttf");
+}
+.navbar-brand {
+  font-family: "Portal";
+  font-size: xx-large;
+}
+
+body {
+  background-color: #2f2f2f;
+}
+
+.card {
+  background-color: #f6f6f6;
+  box-shadow: #ffcb74 0px 0px 5px;
+}
+.btn {
+  background-color: #ffcb74 !important;
+  font-weight: 600;
+  width: 80%;
+}
+#view {
+  width: 80%;
+}
+
+h5 {
+  font-family: "Coldiac";
+  font-weight: bold;
+  margin-top: 0.7em;
+}
+
+/* Define the animation */
+@keyframes slideInFromBottom {
+  0% {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+/* Apply the animation to the card elements */
+.card {
+  animation: slideInFromBottom 0.5s ease-in-out;
+}
